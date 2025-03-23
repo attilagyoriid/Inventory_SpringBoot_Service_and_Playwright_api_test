@@ -21,6 +21,8 @@ This section lists any major frameworks/libraries used to bootstrap project.
 ### Install dependencies
 
 ```bash
+Use Bash or PowerShell
+
 npm i
 ```
 
@@ -33,6 +35,8 @@ Read README.md in Inventory Service folder
 ### Execute api tests
 
 ```bash
+Use Bash or PowerShell
+
 npm run test:api --baseurl=http://localhost:8095
 ```
 
