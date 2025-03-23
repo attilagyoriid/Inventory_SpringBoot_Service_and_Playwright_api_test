@@ -1,0 +1,14 @@
+{
+  "compilerOptions": {
+    "lib": ["es2021"],
+    "esModuleInterop": true,
+    "typeRoots": ["./node_modules/@types", "src/helper/types"],
+    "resolveJsonModule": true,
+    "baseUrl": ".",
+    "paths": {
+      "@pages/*": ["./framework/pages/*"],
+      "@types/*": ["./framework/types/*"],
+      "@hooks/*": ["./framework/hooks/*"]
+    }
+  }
+}

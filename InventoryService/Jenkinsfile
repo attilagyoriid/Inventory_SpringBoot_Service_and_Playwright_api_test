@@ -1,0 +1,87 @@
+pipeline {
+    agent any
+
+    environment {
+        DOCKER_IMAGE = 'inventory-service:latest'
+        EXPOSED_PORT = '8095'
+    }
+
+    stages {
+        stage('Build and Test') {
+                    steps {
+                        script {
+                            sh 'mvn clean package verify'
+                        }
+                    }
+        }
+        stage('Publish Reports') {
+            steps {
+                script {
+                    publishHTML(target: [
+                        reportName: 'JaCoCo Coverage Report',
+                        reportDir: 'target/site/jacoco',
+                        reportFiles: 'index.html',
+                        keepAll: true,
+                        alwaysLinkToLastBuild: true,
+                        allowMissing: false
+                    ])
+                     publishHTML(target: [
+                        reportName: 'Surefire Test Report',
+                        reportDir: 'target/site',
+                        reportFiles: 'surefire-report.html',
+                        keepAll: true,
+                        alwaysLinkToLastBuild: true,
+                        allowMissing: false
+                    ])
+                    archiveArtifacts artifacts: 'target/surefire-reports/*.xml, target/failsafe-reports/*.xml', allowEmptyArchive: true
+                     junit 'target/surefire-reports/*.xml'
+                     junit 'target/failsafe-reports/*.xml'
+                }
+            }
+        }
+         stage('Stop and Remove running service container') {
+                    when {
+                        expression {
+                            currentBuild.result == null || currentBuild.result == 'SUCCESS'
+                        }
+                    }
+                    steps {
+                            script {
+                                sh '''
+                                    docker stop $(docker ps -q --filter ancestor=inventory-service:latest) || true
+                                    docker rm $(docker ps -a -q --filter ancestor=inventory-service:latest) || true
+                                '''
+                            }
+                    }
+         }
+        stage('Build Docker Image') {
+            when {
+                expression {
+                    currentBuild.result == null || currentBuild.result == 'SUCCESS'
+                }
+            }
+            steps {
+                script {
+                    sh 'docker build -t $DOCKER_IMAGE .'
+                }
+            }
+        }
+        stage('Deploy') {
+            when {
+                expression {
+                    currentBuild.result == null || currentBuild.result == 'SUCCESS'
+                }
+            }
+            steps {
+                script {
+                    sh 'docker run -d -p $EXPOSED_PORT:$EXPOSED_PORT $DOCKER_IMAGE'
+                }
+            }
+        }
+    }
+    post {
+        always {
+            cleanWs()
+        }
+    }
+}

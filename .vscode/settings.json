@@ -1,0 +1,10 @@
+{
+  "cucumberautocomplete.steps": [
+    "/APITest/playwright-test/tests/**/steps/*.ts"
+  ],
+  "cucumberautocomplete.strictGherkinCompletion": true,
+  "files.eol": "\n",
+
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "editor.formatOnSave": true
+}

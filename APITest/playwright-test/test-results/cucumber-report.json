@@ -1,0 +1,1920 @@
+[
+  {
+    "description": "    As a user \n    I want to have an Inventory Service\n    So that I can manage items ",
+    "elements": [
+      {
+        "description": "",
+        "id": "inventory-service-item-api-endpoints-validation;create-item-with-invalid-data",
+        "keyword": "Scenario",
+        "line": 8,
+        "name": "Create item with invalid data",
+        "steps": [
+          {
+            "keyword": "Before",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 14784900
+            }
+          },
+          {
+            "keyword": "Before",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 443800
+            }
+          },
+          {
+            "arguments": [
+              {
+                "rows": [
+                  {
+                    "cells": [
+                      "name",
+                      "quantity",
+                      "price"
+                    ]
+                  },
+                  {
+                    "cells": [
+                      "",
+                      "-1",
+                      "-10.0"
+                    ]
+                  }
+                ]
+              }
+            ],
+            "keyword": "When ",
+            "line": 9,
+            "name": "I send a POST request to \"/items\" with invalid data:",
+            "match": {
+              "location": "tests\\api\\steps\\item-api.steps.ts:15"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 50192500
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 12,
+            "name": "the response status should be 400",
+            "match": {
+              "location": "tests\\api\\steps\\item-api.steps.ts:76"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 3396300
+            }
+          },
+          {
+            "arguments": [
+              {
+                "rows": [
+                  {
+                    "cells": [
+                      "field",
+                      "error"
+                    ]
+                  },
+                  {
+                    "cells": [
+                      "name",
+                      "Name is required"
+                    ]
+                  },
+                  {
+                    "cells": [
+                      "quantity",
+                      "Quantity must be greater than or equal to 0"
+                    ]
+                  },
+                  {
+                    "cells": [
+                      "price",
+                      "Price must be greater than or equal to 0"
+                    ]
+                  }
+                ]
+              }
+            ],
+            "keyword": "And ",
+            "line": 13,
+            "name": "the response should contain validation errors:",
+            "match": {
+              "location": "tests\\api\\steps\\item-api.steps.ts:80"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 5312199
+            }
+          },
+          {
+            "keyword": "After",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 3142500
+            }
+          },
+          {
+            "keyword": "After",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 234899
+            }
+          },
+          {
+            "keyword": "After",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 462100
+            }
+          }
+        ],
+        "tags": [
+          {
+            "name": "@api",
+            "line": 1
+          }
+        ],
+        "type": "scenario"
+      },
+      {
+        "description": "",
+        "id": "inventory-service-item-api-endpoints-validation;get-item-with-non-existing-id",
+        "keyword": "Scenario",
+        "line": 26,
+        "name": "Get item with non-existing ID",
+        "steps": [
+          {
+            "keyword": "Before",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 9837900
+            }
+          },
+          {
+            "keyword": "Before",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 263000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 20,
+            "name": "I send a GET request to \"/items/00000000-0000-0000-0000-000000000000\"",
+            "match": {
+              "location": "tests\\api\\steps\\item-api.steps.ts:31"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 45117299
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 21,
+            "name": "the response status should be 404",
+            "match": {
+              "location": "tests\\api\\steps\\item-api.steps.ts:76"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 5156499
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 22,
+            "name": "the response should contain error message \"Item not found with id: 00000000-0000-0000-0000-000000000000\"",
+            "match": {
+              "location": "tests\\api\\steps\\item-api.steps.ts:93"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 3001200
+            }
+          },
+          {
+            "keyword": "After",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 4283500
+            }
+          },
+          {
+            "keyword": "After",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 342899
+            }
+          },
+          {
+            "keyword": "After",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 763399
+            }
+          }
+        ],
+        "tags": [
+          {
+            "name": "@api",
+            "line": 1
+          }
+        ],
+        "type": "scenario"
+      },
+      {
+        "description": "",
+        "id": "inventory-service-item-api-endpoints-validation;get-item-with-non-existing-id",
+        "keyword": "Scenario",
+        "line": 27,
+        "name": "Get item with non-existing ID",
+        "steps": [
+          {
+            "keyword": "Before",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 10914400
+            }
+          },
+          {
+            "keyword": "Before",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 256800
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 20,
+            "name": "I send a GET request to \"/items/11111111-1111-1111-1111-111111111111\"",
+            "match": {
+              "location": "tests\\api\\steps\\item-api.steps.ts:31"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 50481099
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 21,
+            "name": "the response status should be 404",
+            "match": {
+              "location": "tests\\api\\steps\\item-api.steps.ts:76"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 6118699
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 22,
+            "name": "the response should contain error message \"Item not found with id: 11111111-1111-1111-1111-111111111111\"",
+            "match": {
+              "location": "tests\\api\\steps\\item-api.steps.ts:93"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 4774100
+            }
+          },
+          {
+            "keyword": "After",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 4936499
+            }
+          },
+          {
+            "keyword": "After",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 432700
+            }
+          },
+          {
+            "keyword": "After",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 834799
+            }
+          }
+        ],
+        "tags": [
+          {
+            "name": "@api",
+            "line": 1
+          }
+        ],
+        "type": "scenario"
+      },
+      {
+        "description": "",
+        "id": "inventory-service-item-api-endpoints-validation;get-item-with-non-existing-id",
+        "keyword": "Scenario",
+        "line": 28,
+        "name": "Get item with non-existing ID",
+        "steps": [
+          {
+            "keyword": "Before",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 2946899
+            }
+          },
+          {
+            "keyword": "Before",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 351400
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 20,
+            "name": "I send a GET request to \"/items/22222222-2222-2222-2222-222222222222\"",
+            "match": {
+              "location": "tests\\api\\steps\\item-api.steps.ts:31"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 14551800
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 21,
+            "name": "the response status should be 404",
+            "match": {
+              "location": "tests\\api\\steps\\item-api.steps.ts:76"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 752200
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 22,
+            "name": "the response should contain error message \"Item not found with id: 22222222-2222-2222-2222-222222222222\"",
+            "match": {
+              "location": "tests\\api\\steps\\item-api.steps.ts:93"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 3782799
+            }
+          },
+          {
+            "keyword": "After",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 2225899
+            }
+          },
+          {
+            "keyword": "After",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 150299
+            }
+          },
+          {
+            "keyword": "After",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 212700
+            }
+          }
+        ],
+        "tags": [
+          {
+            "name": "@api",
+            "line": 1
+          }
+        ],
+        "type": "scenario"
+      },
+      {
+        "description": "",
+        "id": "inventory-service-item-api-endpoints-validation;update-item-with-invalid-data",
+        "keyword": "Scenario",
+        "line": 30,
+        "name": "Update item with invalid data",
+        "steps": [
+          {
+            "keyword": "Before",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 1987399
+            }
+          },
+          {
+            "keyword": "Before",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 317000
+            }
+          },
+          {
+            "arguments": [
+              {
+                "rows": [
+                  {
+                    "cells": [
+                      "name",
+                      "quantity",
+                      "price"
+                    ]
+                  },
+                  {
+                    "cells": [
+                      "",
+                      "-1",
+                      "-10.0"
+                    ]
+                  }
+                ]
+              }
+            ],
+            "keyword": "When ",
+            "line": 31,
+            "name": "I send a PUT request to \"/items/00000000-0000-0000-0000-000000000000\" with invalid data:",
+            "match": {
+              "location": "tests\\api\\steps\\item-api.steps.ts:36"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 16242799
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 34,
+            "name": "the response status should be 400",
+            "match": {
+              "location": "tests\\api\\steps\\item-api.steps.ts:76"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 781200
+            }
+          },
+          {
+            "arguments": [
+              {
+                "rows": [
+                  {
+                    "cells": [
+                      "field",
+                      "error"
+                    ]
+                  },
+                  {
+                    "cells": [
+                      "name",
+                      "Name is required"
+                    ]
+                  },
+                  {
+                    "cells": [
+                      "quantity",
+                      "Quantity must be greater than or equal to 0"
+                    ]
+                  },
+                  {
+                    "cells": [
+                      "price",
+                      "Price must be greater than or equal to 0"
+                    ]
+                  }
+                ]
+              }
+            ],
+            "keyword": "And ",
+            "line": 35,
+            "name": "the response should contain validation errors:",
+            "match": {
+              "location": "tests\\api\\steps\\item-api.steps.ts:80"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 3818500
+            }
+          },
+          {
+            "keyword": "After",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 2104200
+            }
+          },
+          {
+            "keyword": "After",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 138200
+            }
+          },
+          {
+            "keyword": "After",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 488599
+            }
+          }
+        ],
+        "tags": [
+          {
+            "name": "@api",
+            "line": 1
+          }
+        ],
+        "type": "scenario"
+      },
+      {
+        "description": "",
+        "id": "inventory-service-item-api-endpoints-validation;update-non-existing-item",
+        "keyword": "Scenario",
+        "line": 51,
+        "name": "Update non-existing item",
+        "steps": [
+          {
+            "keyword": "Before",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 2432299
+            }
+          },
+          {
+            "keyword": "Before",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 260199
+            }
+          },
+          {
+            "arguments": [
+              {
+                "rows": [
+                  {
+                    "cells": [
+                      "name",
+                      "quantity",
+                      "price"
+                    ]
+                  },
+                  {
+                    "cells": [
+                      "Test Item",
+                      "10",
+                      "99.99"
+                    ]
+                  }
+                ]
+              }
+            ],
+            "keyword": "When ",
+            "line": 43,
+            "name": "I send a PUT request to \"/items/00000000-0000-0000-0000-000000000000\" with valid data:",
+            "match": {
+              "location": "tests\\api\\steps\\item-api.steps.ts:51"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 15248499
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 46,
+            "name": "the response status should be 404",
+            "match": {
+              "location": "tests\\api\\steps\\item-api.steps.ts:76"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 717300
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 47,
+            "name": "the response should contain error message \"Item not found with id: 00000000-0000-0000-0000-000000000000\"",
+            "match": {
+              "location": "tests\\api\\steps\\item-api.steps.ts:93"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 927599
+            }
+          },
+          {
+            "keyword": "After",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 1714100
+            }
+          },
+          {
+            "keyword": "After",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 177199
+            }
+          },
+          {
+            "keyword": "After",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 128099
+            }
+          }
+        ],
+        "tags": [
+          {
+            "name": "@api",
+            "line": 1
+          }
+        ],
+        "type": "scenario"
+      },
+      {
+        "description": "",
+        "id": "inventory-service-item-api-endpoints-validation;update-non-existing-item",
+        "keyword": "Scenario",
+        "line": 52,
+        "name": "Update non-existing item",
+        "steps": [
+          {
+            "keyword": "Before",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 2270099
+            }
+          },
+          {
+            "keyword": "Before",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 257499
+            }
+          },
+          {
+            "arguments": [
+              {
+                "rows": [
+                  {
+                    "cells": [
+                      "name",
+                      "quantity",
+                      "price"
+                    ]
+                  },
+                  {
+                    "cells": [
+                      "Test Item",
+                      "10",
+                      "99.99"
+                    ]
+                  }
+                ]
+              }
+            ],
+            "keyword": "When ",
+            "line": 43,
+            "name": "I send a PUT request to \"/items/11111111-1111-1111-1111-111111111111\" with valid data:",
+            "match": {
+              "location": "tests\\api\\steps\\item-api.steps.ts:51"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 18772400
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 46,
+            "name": "the response status should be 404",
+            "match": {
+              "location": "tests\\api\\steps\\item-api.steps.ts:76"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 1335599
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 47,
+            "name": "the response should contain error message \"Item not found with id: 11111111-1111-1111-1111-111111111111\"",
+            "match": {
+              "location": "tests\\api\\steps\\item-api.steps.ts:93"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 1071199
+            }
+          },
+          {
+            "keyword": "After",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 2255699
+            }
+          },
+          {
+            "keyword": "After",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 217599
+            }
+          },
+          {
+            "keyword": "After",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 240199
+            }
+          }
+        ],
+        "tags": [
+          {
+            "name": "@api",
+            "line": 1
+          }
+        ],
+        "type": "scenario"
+      },
+      {
+        "description": "",
+        "id": "inventory-service-item-api-endpoints-validation;update-non-existing-item",
+        "keyword": "Scenario",
+        "line": 53,
+        "name": "Update non-existing item",
+        "steps": [
+          {
+            "keyword": "Before",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 3259199
+            }
+          },
+          {
+            "keyword": "Before",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 235299
+            }
+          },
+          {
+            "arguments": [
+              {
+                "rows": [
+                  {
+                    "cells": [
+                      "name",
+                      "quantity",
+                      "price"
+                    ]
+                  },
+                  {
+                    "cells": [
+                      "Test Item",
+                      "10",
+                      "99.99"
+                    ]
+                  }
+                ]
+              }
+            ],
+            "keyword": "When ",
+            "line": 43,
+            "name": "I send a PUT request to \"/items/22222222-2222-2222-2222-222222222222\" with valid data:",
+            "match": {
+              "location": "tests\\api\\steps\\item-api.steps.ts:51"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 17315100
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 46,
+            "name": "the response status should be 404",
+            "match": {
+              "location": "tests\\api\\steps\\item-api.steps.ts:76"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 1156700
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 47,
+            "name": "the response should contain error message \"Item not found with id: 22222222-2222-2222-2222-222222222222\"",
+            "match": {
+              "location": "tests\\api\\steps\\item-api.steps.ts:93"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 1002700
+            }
+          },
+          {
+            "keyword": "After",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 1734800
+            }
+          },
+          {
+            "keyword": "After",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 142200
+            }
+          },
+          {
+            "keyword": "After",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 119100
+            }
+          }
+        ],
+        "tags": [
+          {
+            "name": "@api",
+            "line": 1
+          }
+        ],
+        "type": "scenario"
+      },
+      {
+        "description": "",
+        "id": "inventory-service-item-api-endpoints-validation;delete-non-existing-item",
+        "keyword": "Scenario",
+        "line": 62,
+        "name": "Delete non-existing item",
+        "steps": [
+          {
+            "keyword": "Before",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 1761899
+            }
+          },
+          {
+            "keyword": "Before",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 108600
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 56,
+            "name": "I send a DELETE request to \"/items/00000000-0000-0000-0000-000000000000\"",
+            "match": {
+              "location": "tests\\api\\steps\\item-api.steps.ts:67"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 17650000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 57,
+            "name": "the response status should be 404",
+            "match": {
+              "location": "tests\\api\\steps\\item-api.steps.ts:76"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 640600
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 58,
+            "name": "the response should contain error message \"Item not found with id: 00000000-0000-0000-0000-000000000000\"",
+            "match": {
+              "location": "tests\\api\\steps\\item-api.steps.ts:93"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 617699
+            }
+          },
+          {
+            "keyword": "After",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 2440200
+            }
+          },
+          {
+            "keyword": "After",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 156399
+            }
+          },
+          {
+            "keyword": "After",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 150399
+            }
+          }
+        ],
+        "tags": [
+          {
+            "name": "@api",
+            "line": 1
+          }
+        ],
+        "type": "scenario"
+      },
+      {
+        "description": "",
+        "id": "inventory-service-item-api-endpoints-validation;delete-non-existing-item",
+        "keyword": "Scenario",
+        "line": 63,
+        "name": "Delete non-existing item",
+        "steps": [
+          {
+            "keyword": "Before",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 2694599
+            }
+          },
+          {
+            "keyword": "Before",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 247399
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 56,
+            "name": "I send a DELETE request to \"/items/11111111-1111-1111-1111-111111111111\"",
+            "match": {
+              "location": "tests\\api\\steps\\item-api.steps.ts:67"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 14885199
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 57,
+            "name": "the response status should be 404",
+            "match": {
+              "location": "tests\\api\\steps\\item-api.steps.ts:76"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 796000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 58,
+            "name": "the response should contain error message \"Item not found with id: 11111111-1111-1111-1111-111111111111\"",
+            "match": {
+              "location": "tests\\api\\steps\\item-api.steps.ts:93"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 754400
+            }
+          },
+          {
+            "keyword": "After",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 2249600
+            }
+          },
+          {
+            "keyword": "After",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 176400
+            }
+          },
+          {
+            "keyword": "After",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 224600
+            }
+          }
+        ],
+        "tags": [
+          {
+            "name": "@api",
+            "line": 1
+          }
+        ],
+        "type": "scenario"
+      },
+      {
+        "description": "",
+        "id": "inventory-service-item-api-endpoints-validation;delete-non-existing-item",
+        "keyword": "Scenario",
+        "line": 64,
+        "name": "Delete non-existing item",
+        "steps": [
+          {
+            "keyword": "Before",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 2354699
+            }
+          },
+          {
+            "keyword": "Before",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 184700
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 56,
+            "name": "I send a DELETE request to \"/items/22222222-2222-2222-2222-222222222222\"",
+            "match": {
+              "location": "tests\\api\\steps\\item-api.steps.ts:67"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 17312500
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 57,
+            "name": "the response status should be 404",
+            "match": {
+              "location": "tests\\api\\steps\\item-api.steps.ts:76"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 631399
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 58,
+            "name": "the response should contain error message \"Item not found with id: 22222222-2222-2222-2222-222222222222\"",
+            "match": {
+              "location": "tests\\api\\steps\\item-api.steps.ts:93"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 495000
+            }
+          },
+          {
+            "keyword": "After",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 2048800
+            }
+          },
+          {
+            "keyword": "After",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 117400
+            }
+          },
+          {
+            "keyword": "After",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 102000
+            }
+          }
+        ],
+        "tags": [
+          {
+            "name": "@api",
+            "line": 1
+          }
+        ],
+        "type": "scenario"
+      },
+      {
+        "description": "",
+        "id": "inventory-service-item-api-endpoints-validation;create-item-with-valid-data",
+        "keyword": "Scenario",
+        "line": 66,
+        "name": "Create item with valid data",
+        "steps": [
+          {
+            "keyword": "Before",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 2211699
+            }
+          },
+          {
+            "keyword": "Before",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 271299
+            }
+          },
+          {
+            "arguments": [
+              {
+                "rows": [
+                  {
+                    "cells": [
+                      "name",
+                      "quantity",
+                      "price"
+                    ]
+                  },
+                  {
+                    "cells": [
+                      "Test Item 1",
+                      "10",
+                      "99.99"
+                    ]
+                  }
+                ]
+              }
+            ],
+            "keyword": "When ",
+            "line": 67,
+            "name": "I send a POST request to \"/items\" with valid data:",
+            "match": {
+              "location": "tests\\api\\steps\\item-api.steps.ts:111"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 13152100
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 70,
+            "name": "the response status should be 201",
+            "match": {
+              "location": "tests\\api\\steps\\item-api.steps.ts:76"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 368400
+            }
+          },
+          {
+            "arguments": [
+              {
+                "rows": [
+                  {
+                    "cells": [
+                      "name",
+                      "quantity",
+                      "price"
+                    ]
+                  },
+                  {
+                    "cells": [
+                      "Test Item 1",
+                      "10",
+                      "99.99"
+                    ]
+                  }
+                ]
+              }
+            ],
+            "keyword": "And ",
+            "line": 71,
+            "name": "the response should contain item details:",
+            "match": {
+              "location": "tests\\api\\steps\\item-api.steps.ts:170"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 1823600
+            }
+          },
+          {
+            "keyword": "After",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 1264099
+            }
+          },
+          {
+            "keyword": "After",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 95100
+            }
+          },
+          {
+            "keyword": "After",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 88299
+            }
+          }
+        ],
+        "tags": [
+          {
+            "name": "@api",
+            "line": 1
+          }
+        ],
+        "type": "scenario"
+      },
+      {
+        "description": "",
+        "id": "inventory-service-item-api-endpoints-validation;get-all-items-with-data",
+        "keyword": "Scenario",
+        "line": 75,
+        "name": "Get all items with data",
+        "steps": [
+          {
+            "keyword": "Before",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 1287600
+            }
+          },
+          {
+            "keyword": "Before",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 130200
+            }
+          },
+          {
+            "arguments": [
+              {
+                "rows": [
+                  {
+                    "cells": [
+                      "name",
+                      "quantity",
+                      "price"
+                    ]
+                  },
+                  {
+                    "cells": [
+                      "Test Item 2",
+                      "5",
+                      "49.99"
+                    ]
+                  }
+                ]
+              }
+            ],
+            "keyword": "Given ",
+            "line": 76,
+            "name": "I have created an item with data:",
+            "match": {
+              "location": "tests\\api\\steps\\item-api.steps.ts:97"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 12661399
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 79,
+            "name": "I send a GET request to \"/items\"",
+            "match": {
+              "location": "tests\\api\\steps\\item-api.steps.ts:31"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 16596600
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 80,
+            "name": "the response status should be 200",
+            "match": {
+              "location": "tests\\api\\steps\\item-api.steps.ts:76"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 651199
+            }
+          },
+          {
+            "arguments": [
+              {
+                "rows": [
+                  {
+                    "cells": [
+                      "name",
+                      "quantity",
+                      "price"
+                    ]
+                  },
+                  {
+                    "cells": [
+                      "Test Item 2",
+                      "5",
+                      "49.99"
+                    ]
+                  }
+                ]
+              }
+            ],
+            "keyword": "And ",
+            "line": 81,
+            "name": "the response should contain items:",
+            "match": {
+              "location": "tests\\api\\steps\\item-api.steps.ts:177"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 3606000
+            }
+          },
+          {
+            "keyword": "After",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 12745300
+            }
+          },
+          {
+            "keyword": "After",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 187500
+            }
+          },
+          {
+            "keyword": "After",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 188200
+            }
+          }
+        ],
+        "tags": [
+          {
+            "name": "@api",
+            "line": 1
+          }
+        ],
+        "type": "scenario"
+      },
+      {
+        "description": "",
+        "id": "inventory-service-item-api-endpoints-validation;get-item-by-id",
+        "keyword": "Scenario",
+        "line": 85,
+        "name": "Get item by ID",
+        "steps": [
+          {
+            "keyword": "Before",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 1193900
+            }
+          },
+          {
+            "keyword": "Before",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 173800
+            }
+          },
+          {
+            "arguments": [
+              {
+                "rows": [
+                  {
+                    "cells": [
+                      "name",
+                      "quantity",
+                      "price"
+                    ]
+                  },
+                  {
+                    "cells": [
+                      "Test Item 3",
+                      "15",
+                      "29.99"
+                    ]
+                  }
+                ]
+              }
+            ],
+            "keyword": "Given ",
+            "line": 86,
+            "name": "I have created an item with data:",
+            "match": {
+              "location": "tests\\api\\steps\\item-api.steps.ts:97"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 12564000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 89,
+            "name": "I send a GET request to \"/items/{id}\" with the created item id",
+            "match": {
+              "location": "tests\\api\\steps\\item-api.steps.ts:126"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 14064399
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 90,
+            "name": "the response status should be 200",
+            "match": {
+              "location": "tests\\api\\steps\\item-api.steps.ts:76"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 640300
+            }
+          },
+          {
+            "arguments": [
+              {
+                "rows": [
+                  {
+                    "cells": [
+                      "name",
+                      "quantity",
+                      "price"
+                    ]
+                  },
+                  {
+                    "cells": [
+                      "Test Item 3",
+                      "15",
+                      "29.99"
+                    ]
+                  }
+                ]
+              }
+            ],
+            "keyword": "And ",
+            "line": 91,
+            "name": "the response should contain item details:",
+            "match": {
+              "location": "tests\\api\\steps\\item-api.steps.ts:170"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 2711299
+            }
+          },
+          {
+            "keyword": "After",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 11598500
+            }
+          },
+          {
+            "keyword": "After",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 177700
+            }
+          },
+          {
+            "keyword": "After",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 192999
+            }
+          }
+        ],
+        "tags": [
+          {
+            "name": "@api",
+            "line": 1
+          }
+        ],
+        "type": "scenario"
+      },
+      {
+        "description": "",
+        "id": "inventory-service-item-api-endpoints-validation;update-item-with-valid-data",
+        "keyword": "Scenario",
+        "line": 95,
+        "name": "Update item with valid data",
+        "steps": [
+          {
+            "keyword": "Before",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 1643100
+            }
+          },
+          {
+            "keyword": "Before",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 188600
+            }
+          },
+          {
+            "arguments": [
+              {
+                "rows": [
+                  {
+                    "cells": [
+                      "name",
+                      "quantity",
+                      "price"
+                    ]
+                  },
+                  {
+                    "cells": [
+                      "Test Item 4",
+                      "20",
+                      "39.99"
+                    ]
+                  }
+                ]
+              }
+            ],
+            "keyword": "Given ",
+            "line": 96,
+            "name": "I have created an item with data:",
+            "match": {
+              "location": "tests\\api\\steps\\item-api.steps.ts:97"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 12746000
+            }
+          },
+          {
+            "arguments": [
+              {
+                "rows": [
+                  {
+                    "cells": [
+                      "name",
+                      "quantity",
+                      "price"
+                    ]
+                  },
+                  {
+                    "cells": [
+                      "Updated Item 4",
+                      "25",
+                      "44.99"
+                    ]
+                  }
+                ]
+              }
+            ],
+            "keyword": "When ",
+            "line": 99,
+            "name": "I send a PUT request to \"/items/{id}\" with valid data:",
+            "match": {
+              "location": "tests\\api\\steps\\item-api.steps.ts:51"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 13807099
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 102,
+            "name": "the response status should be 200",
+            "match": {
+              "location": "tests\\api\\steps\\item-api.steps.ts:76"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 556800
+            }
+          },
+          {
+            "arguments": [
+              {
+                "rows": [
+                  {
+                    "cells": [
+                      "name",
+                      "quantity",
+                      "price"
+                    ]
+                  },
+                  {
+                    "cells": [
+                      "Updated Item 4",
+                      "25",
+                      "44.99"
+                    ]
+                  }
+                ]
+              }
+            ],
+            "keyword": "And ",
+            "line": 103,
+            "name": "the response should contain item details:",
+            "match": {
+              "location": "tests\\api\\steps\\item-api.steps.ts:170"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 996099
+            }
+          },
+          {
+            "keyword": "After",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 11969099
+            }
+          },
+          {
+            "keyword": "After",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 123700
+            }
+          },
+          {
+            "keyword": "After",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 177400
+            }
+          }
+        ],
+        "tags": [
+          {
+            "name": "@api",
+            "line": 1
+          }
+        ],
+        "type": "scenario"
+      },
+      {
+        "description": "",
+        "id": "inventory-service-item-api-endpoints-validation;delete-existing-item",
+        "keyword": "Scenario",
+        "line": 107,
+        "name": "Delete existing item",
+        "steps": [
+          {
+            "keyword": "Before",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 1173600
+            }
+          },
+          {
+            "keyword": "Before",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 106399
+            }
+          },
+          {
+            "arguments": [
+              {
+                "rows": [
+                  {
+                    "cells": [
+                      "name",
+                      "quantity",
+                      "price"
+                    ]
+                  },
+                  {
+                    "cells": [
+                      "Test Item 5",
+                      "30",
+                      "59.99"
+                    ]
+                  }
+                ]
+              }
+            ],
+            "keyword": "Given ",
+            "line": 108,
+            "name": "I have created an item with data:",
+            "match": {
+              "location": "tests\\api\\steps\\item-api.steps.ts:97"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 10642700
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 111,
+            "name": "I send a DELETE request to \"/items/{id}\" with the created item id",
+            "match": {
+              "location": "tests\\api\\steps\\item-api.steps.ts:151"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 11755000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 112,
+            "name": "the response status should be 204",
+            "match": {
+              "location": "tests\\api\\steps\\item-api.steps.ts:76"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 599999
+            }
+          },
+          {
+            "keyword": "After",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 9836800
+            }
+          },
+          {
+            "keyword": "After",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 128400
+            }
+          },
+          {
+            "keyword": "After",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 98299
+            }
+          }
+        ],
+        "tags": [
+          {
+            "name": "@api",
+            "line": 1
+          }
+        ],
+        "type": "scenario"
+      }
+    ],
+    "id": "inventory-service-item-api-endpoints-validation",
+    "line": 2,
+    "keyword": "Feature",
+    "name": "Inventory Service Item API Endpoints Validation",
+    "tags": [
+      {
+        "name": "@api",
+        "line": 1
+      }
+    ],
+    "uri": "tests\\api\\features\\item-api.feature"
+  }
+]

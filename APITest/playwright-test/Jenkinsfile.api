@@ -1,0 +1,110 @@
+pipeline {
+    agent {
+        docker {
+            image 'node:23.8.0'
+            args '''
+                --ipc=host
+                -e CI=true
+            '''
+        }
+    }
+
+    environment {
+        HOME = '.'
+        CI = 'true'
+        TEST_DIR = '/playwright-test'
+        LOG_FILE = 'jenkins.log'
+    }
+
+    stages {
+        stage('Checkout Code') {
+            steps {
+                script {
+                    echo 'Checkout Code starts...'
+                    git branch: 'main', url: 'github url'
+                    echo 'Checkout Code ends...'
+                    echo "Test Dir: ${env.TEST_DIR}"
+                }
+            }
+        }
+        stage('List Working Directory') {
+            steps {
+                        script {
+                            sh '''
+                                echo "List Working Directory starts..."
+                                cd "playwright-test"
+                                ls -a
+                                echo "List Working Directory ends..."
+                            '''
+                        }
+            }
+        }
+
+        stage('Install Dependencies') {
+            steps {
+                script {
+                        sh '''
+                                echo "Install Dependencies starts..."
+                                cd "playwright-test"
+                                npm ci
+                                echo "Install Dependencies ends..."
+                            '''
+                }
+            }
+        }
+
+        stage('Install Playwright') {
+            steps {
+                script {
+                        sh '''
+                                echo "Install Playwright starts..."
+                                cd "playwright-test"
+                                npm install
+                                npx playwright install
+                                echo "Install Playwright ends..."
+                            '''
+                }
+            }
+        }
+
+        stage('Run Playwright API Tests') {
+            steps {
+                script {
+                        sh '''
+                                echo "Run Playwright API Tests starts..."
+                                cd "playwright-test"
+                                npm run test:api
+                                echo "Run Playwright API Tests ends..."
+                            '''
+                }
+            }
+        }
+
+     
+    }
+
+    post {
+        always {
+              archiveArtifacts artifacts: 'playwright-test/playwright-report/**/*', fingerprint: true
+              
+                publishHTML(target: [
+                    allowMissing: false,
+                    alwaysLinkToLastBuild: true,
+                    keepAll: true,
+                    reportDir: 'playwright-test/playwright-report',
+                    reportFiles: 'index.html',
+                    reportName: 'Playwright API Test Report',
+                    reportTitles: 'Playwright API Report',
+                    includes: '**/*',
+                    escapeUnderscores: true
+                ])
+              
+        }
+        failure {
+            script {
+                echo 'Tests failed. Check the Playwright report.'
+            }
+        }
+    }
+}
+
